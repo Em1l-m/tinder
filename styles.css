@@ -1,0 +1,235 @@
+/* General styles */
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: #333;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    font-family: 'Roboto', sans-serif;
+    color: #4CAF50;
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px 10px 0 0;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+/* Registration */
+.registration {
+    background: white;
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 1rem 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.registration button {
+    width: 100%;
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.phone {
+    background-color: #008CBA;
+    color: white;
+}
+
+.email {
+    background-color: #f44336;
+    color: white;
+}
+
+.apple {
+    background-color: #333;
+    color: white;
+}
+
+.google {
+    background-color: #db4a39;
+    color: white;
+}
+
+.phone:hover {
+    background-color: #007bb5;
+}
+
+.email:hover {
+    background-color: #e31b0c;
+}
+
+.apple:hover {
+    background-color: #1a1a1a;
+}
+
+.google:hover {
+    background-color: #c23321;
+}
+
+/* Message */
+.message {
+    display: none;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem 1rem;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 5px;
+    font-size: 1rem;
+    z-index: 1000;
+    text-align: center;
+}
+
+/* Main Content */
+.main-content {
+    text-align: center;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 1rem 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.card h3 {
+    margin: 0.5rem 0;
+    color: #333;
+    font-size: 1.5rem;
+}
+
+.card p {
+    margin: 0;
+    color: #666;
+    font-size: 1rem;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.buttons button {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    margin: 0 5px;
+}
+
+.like {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.dislike {
+    background-color: #f44336;
+    color: white;
+}
+
+.like:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+.dislike:hover {
+    background-color: #e31b0c;
+    transform: scale(1.05);
+}
+
+/* Carousel */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.3s ease;
+    will-change: transform;
+}
+
+.carousel img {
+    max-width: 100%;
+    flex-shrink: 0;
+    width: 100%;
+}
+
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.carousel-nav button {
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    padding: 0.5rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .buttons button {
+        font-size: 0.9rem;
+    }
+
+    .carousel-nav button {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .container {
+        padding: 0 10px;
+    }
+
+    .buttons button {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .carousel-nav button {
+        font-size: 1rem;
+    }
+}

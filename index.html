@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landlord-Tenant Match</title>
+    <meta name="description" content="Find your perfect rental property or tenant with our Landlord-Tenant Match service.">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden; /* Prevent scrolling */
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 10px 10px 0 0;
+        }
+
+        .registration {
+            background: white;
+            border-radius: 0 0 10px 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .registration button {
+            width: 100%;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .phone {
+            background-color: #008CBA;
+            color: white;
+        }
+
+        .email {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .apple {
+            background-color: #333;
+            color: white;
+        }
+
+        .google {
+            background-color: #db4a39;
+            color: white;
+        }
+
+        .phone:hover {
+            background-color: #007bb5;
+        }
+
+        .email:hover {
+            background-color: #e31b0c;
+        }
+
+        .apple:hover {
+            background-color: #1a1a1a;
+        }
+
+        .google:hover {
+            background-color: #c23321;
+        }
+
+        .message {
+            display: none;
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 0.5rem 1rem;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            border-radius: 5px;
+            font-size: 1rem;
+            z-index: 1000;
+            text-align: center;
+        }
+
+        .main-content {
+            display: none;
+            text-align: center;
+        }
+
+        .card {
+            background: white;
+            border-radius: 0 0 10px 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: none;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .card.active {
+            display: block;
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .card img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .card h3 {
+            margin: 0.5rem 0;
+            color: #333;
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            margin: 0;
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+        }
+
+        .buttons button {
+            flex: 1;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+            margin: 0 5px;
+        }
+
+        .buttons button:not(:last-child) {
+            margin-right: 0.5rem;
+        }
+
+        .like {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .dislike {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .like:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+
+        .dislike:hover {
+            background-color: #e31b0c;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 500px) {
+            .container {
+                padding: 0 10px;
+            }
+
+            .buttons button {
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
+        }
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.3s ease;
+            will-change: transform;
+        }
+
+        .carousel img {
+            max-width: 100%;
+            flex-shrink: 0;
+            width: 100%;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .carousel-nav button {
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: white;
+            padding: 0.5rem;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Landlord-Tenant Match</h1>
+        </header>
+        <div class="registration">
+            <h2>Register to Continue</h2>
+            <button class="phone">Register with Phone</button>
+            <button class="email">Register with Email</button>
+            <button class="apple">Register with Apple ID</button>
+            <button class="google">Register with Google Account</button>
+        </div>
+        <div class="message" id="message" role="alert"></div>
+        <div class="main-content">
+            <header>
+                <h1>Welcome to Landlord-Tenant Match</h1>
+            </header>
+            <div class="card active" data-index="0">
+                <div class="carousel-container">
+                    <div class="carousel">
+                        <img src="images/Wohnung1.jpg" alt="Cozy Apartment in Downtown - 1">
+                        <img src="images/Wohnung1_1.jpeg" alt="Cozy Apartment in Downtown - 2">
+                        <img src="images/Wohnung1_2.jpeg" alt="Cozy Apartment in Downtown - 3">
+                    </div>
+                    <div class="carousel-nav">
+                        <button class="prev">&lt;</button>
+                        <button class="next">&gt;</button>
+                    </div>
+                </div>
+                <h3>Cozy Apartment in Downtown</h3>
+                <p>2 Bed, 1 Bath, $1500/month</p>
+                <div class="buttons">
+                    <button class="like">Like</button>
+                    <button class="dislike">Dislike</button>
+                </div>
+            </div>
+            <div class="card" data-index="1">
+                <div class="carousel-container">
+                    <div class="carousel">
+                        <img src="images/Wohnung2.jpg" alt="Modern Loft in the City Center - 1">
+                        <img src="images/Wohnung2_1.jpeg" alt="Modern Loft in the City Center - 2">
+                        <img src="images/Wohunng2_2.jpeg" alt="Modern Loft in the City Center - 2">
+                    </div>
+                    <div class="carousel-nav">
+                        <button class="prev">&lt;</button>
+                        <button class="next">&gt;</button>
+                    </div>
+                </div>
+                <h3>Modern Loft in the City Center</h3>
+                <p>1 Bed, 1 Bath, $1800/month</p>
+                <div class="buttons">
+                    <button class="like">Like</button>
+                    <button class="dislike">Dislike</button>
+                </div>
+            </div>
+            <div class="card" data-index="2">
+                <div class="carousel-container">
+                    <div class="carousel">
+                        <img src="images/Wohnung3.jpg" alt="Spacious House in the Suburbs - 1">
+                        <img src="images/Wohnung3_1.jpeg" alt="Spacious House in the Suburbs - 2">
+                        <img src="images/Wohnung3_2.jpeg" alt="Spacious House in the Suburbs - 3">
+                    </div>
+                    <div class="carousel-nav">
+                        <button class="prev">&lt;</button>
+                        <button class="next">&gt;</button>
+                    </div>
+                </div>
+                <h3>Spacious House in the Suburbs</h3>
+                <p>3 Bed, 2 Bath, $2500/month</p>
+                <div class="buttons">
+                    <button class="like">Like</button>
+                    <button class="dislike">Dislike</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
